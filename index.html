@@ -175,16 +175,24 @@ var nrescal= 0;
      function tot(){
     	var resPi=document.getElementById("txtRead").value;
   		var resCal=document.getElementById("txtReadCal").value;
+        if (resPi>0 || resCal > 0){
         var total = parseInt(resPi) + parseInt(resCal);
         document.f1.txtTotal.value = total;
+        }else{
+        	alert("No ha agregado nada...")
+        }
     }
 	
     function pagar(){
     	tot();
     	var resTot=document.getElementById("txtReadTot").value;
-    	var pago=prompt('Ingrese su pago:','');	
-        var cambio = parseInt(pago) - parseInt(resTot);
-        alert("Su cambio son: "+cambio+ " pesos, Gracias!");
+        if (resTot>0){
+        	var pago=prompt('Ingrese su pago:','');	
+        	var cambio = parseInt(pago) - parseInt(resTot);
+        	alert("Su cambio son: "+cambio+ " pesos, Gracias!");
+    	}else{
+        	alert("No ha comprado nada...")
+        }
     }
     
 	
