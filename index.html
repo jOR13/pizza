@@ -9,8 +9,26 @@
 		cursor: pointer;
 	}
 	input[type="button"].arit{
-		background-color:maroon;
+		background-color:orange;
+        width:70px;
+		height: 30px;
+        text-align: center;
 	}
+    
+    input[type="button"].csspa{
+		background-color:red;
+        width:70px;
+		height: 30px;
+        text-align: center;
+	}
+    
+     input[type="button"].csstotal{
+		background-color:green;
+        width:70px;
+		height: 30px;
+        text-align: center;
+	}
+    
 	input[type="button"].igual{
 		background-color: green;
 	}
@@ -86,26 +104,24 @@
 <body>
 <center>
 <h1>PIZZAAP</h1>
-<form name="f1"><br>
+<form name="f1">
+<br>
 <input type="text" id="txtReadTot" name="txtTotal" value="0">
 <br>
 <input type="text" id="txtRead" name="txtcaja2" value="0">
 <input type="text" id="txtReadCal" name="txtcaja3" value="0">
 <br>
-
-
-
 <input type="text" name="txtPizza">
 <input type="button" onclick="escribirPi()" value="Pizza">
 <input type="button" onclick="escribirCal()" value="Calzone">
 <input type="text" name="txtCal">
-
 <br>
-<input type="button" onclick="eliminarPi()" value="-">
-<input type="button" onclick="eliminarCal()" value="-">
+<input type="button" class="arit" onclick="eliminarPi()" value="-">
+<input type="button" class="arit" onclick="eliminarCal()" value="-">
 <br>
-<input type="button" onclick="tot()" value="TOTAL">
-<input type="button" onclick="pagar()" value="PAGAR">
+<input type="button" class="csstotal" onclick="tot()" value="TOTAL">
+<input type="button"  class="csspa" onclick="pagar()" value="PAGAR">
+<br>
 </form>
 </center>
 <script type="text/javascript">
@@ -167,7 +183,7 @@ var nrescal= 0;
     	var resTot=document.getElementById("txtReadTot").value;
     	var pago=prompt('Ingrese su pago:','');	
         var cambio = parseInt(pago) - parseInt(resTot);
-        alert("Su cambio es: "+cambio+ " Gracias!");
+        alert("Su cambio son: "+cambio+ " pesos, Gracias!");
     }
     
 	
