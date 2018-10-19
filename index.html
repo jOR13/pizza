@@ -59,6 +59,13 @@
 
 	}
     
+    input[name="txtTotal"]{
+		width:144px;
+		height: 20px;
+        text-align: center;
+        color: lightgreen;
+
+	}
     
 	input[type="button"]{
 		font-size: 18px;
@@ -79,6 +86,7 @@
 <center>
 <h1>PIZZAAP</h1>
 <form name="f1"><br>
+<input type="text" id="txtTotal" name="txtTotal" value="0">
 <br>
 <input type="text" id="txtRead" name="txtcaja2" value="0">
 <input type="text" id="txtReadCal" name="txtcaja3" value="0">
@@ -95,6 +103,8 @@
 <input type="button" onclick="eliminarPi()" value="-">
 <input type="button" onclick="eliminarCal()" value="-">
 <br>
+<input type="button" onclick="tot()" value="TOTAL">
+<input type="button" onclick="" value="PAGAR">
 </form>
 </center>
 <script type="text/javascript">
@@ -105,6 +115,7 @@ var preCal=16;
 var resPi=0;
 var nrespi= 0;
 var nrescal= 0;
+
    function escribirPi(){
 		pizza++;
         document.f1.txtPizza.value = pizza;
@@ -116,7 +127,7 @@ var nrescal= 0;
 		cal++;
         document.f1.txtCal.value = cal;
 		resCal=cal*preCal;
-        document.f1.txtcaja2.value = resCal;
+        document.f1.txtcaja3.value = resCal;
 	}
     
     function eliminarPi(){
@@ -127,20 +138,29 @@ var nrescal= 0;
             nrespi=resPi-prePi;
         	document.f1.txtcaja2.value = nrespi;
     	}else{
-        	alert("USTED NO TIENE NADA AGREGADO")
+        	alert("Usted no tiene pizzas agregadas")
         }
     }
     
     function eliminarCal(){
-    var resCal=document.getElementById("txtRead").value;
+    var resCal=document.getElementById("txtReadCal").value;
     if(resCal != 0){
     		cal--;
         	document.f1.txtCal.value = cal;
             nrescal=resCal-preCal;
-        	document.f1.txtcaja2.value = nrescal;
+        	document.f1.txtcaja3.value = nrescal;
     	}else{
-        	alert("USTED NO TIENE NADA AGREGADO")
+        	alert("Usted no tiene ningun Calzone agregado")
         }
+    }
+    
+     function tot(){
+    	var resPi=document.getElementById("txtRead").value;
+  		var resCal=document.getElementById("txtReadCal").value;
+        var total = parseInt(resPi) + parseInt(resCal);
+        document.f1.txtTotal.value = total;
+        
+     
     }
 	
 	
